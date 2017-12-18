@@ -58,6 +58,9 @@ export default (context) => {
         return;
       }
 
+      // make sure platform version doesn't include a Git URL
+      iosPlatformVersion = iosPlatformVersion.replace(/^(.*)#/, '');
+
       projectName = config.name();
       projectPath = path.join(platformPath, projectName);
       pbxprojPath = path.join(platformPath, projectName + '.xcodeproj', 'project.pbxproj');
